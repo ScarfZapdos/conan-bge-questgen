@@ -1,55 +1,64 @@
 Parsing...
-Parsing: [0.015s CPU, 0.010s wall-clock]
-Normalizing task... [0.000s CPU, 0.002s wall-clock]
+Parsing: [0.000s CPU, 0.005s wall-clock]
+Normalizing task... [0.000s CPU, 0.001s wall-clock]
 Instantiating...
-Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
 Normalizing Datalog program...
-Normalizing Datalog program: [0.032s CPU, 0.030s wall-clock]
-Preparing model... [0.000s CPU, 0.010s wall-clock]
+Normalizing Datalog program: [0.010s CPU, 0.015s wall-clock]
+Preparing model... [0.000s CPU, 0.005s wall-clock]
 Generated 270 rules.
-Computing model... [0.390s CPU, 0.392s wall-clock]
+Computing model... [0.110s CPU, 0.103s wall-clock]
 6586 relevant atoms
 7645 auxiliary atoms
 14231 final queue length
-25358 total queue pushes
-Completing instantiation... [0.719s CPU, 0.729s wall-clock]
-Instantiating: [1.172s CPU, 1.170s wall-clock]
+25356 total queue pushes
+Completing instantiation... [0.240s CPU, 0.270s wall-clock]
+Instantiating: [0.360s CPU, 0.398s wall-clock]
 Computing fact groups...
 Finding invariants...
 29 initial candidates
-Finding invariants: [0.016s CPU, 0.017s wall-clock]
+Finding invariants: [0.020s CPU, 0.005s wall-clock]
 Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
-Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
 Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
 Choosing groups...
 231 uncovered facts
-Choosing groups: [0.000s CPU, 0.001s wall-clock]
-Building translation key... [0.000s CPU, 0.002s wall-clock]
-Computing fact groups: [0.016s CPU, 0.026s wall-clock]
-Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
-Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.020s CPU, 0.008s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
 Building mutex information...
-Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
 Translating task...
 Processing axioms...
 Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
-Processing axioms: [0.047s CPU, 0.044s wall-clock]
-Translating task: [0.844s CPU, 0.836s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.017s wall-clock]
+Translating task: [0.290s CPU, 0.320s wall-clock]
 6779 effect conditions simplified
 0 implied preconditions added
 Detecting unreachable propositions...
-136 operators removed
-40 propositions removed
-Detecting unreachable propositions: [0.140s CPU, 0.149s wall-clock]
-Translator variables: 223
+8 operators removed
+0 axioms removed
+36 propositions removed
+Detecting unreachable propositions: [0.160s CPU, 0.181s wall-clock]
+Reordering and filtering variables...
+140 of 225 variables necessary.
+0 of 8 mutex groups necessary.
+4963 of 5747 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.030s CPU, 0.050s wall-clock]
+Translator variables: 140
 Translator derived variables: 0
-Translator facts: 494
+Translator facts: 328
 Translator goal facts: 3
-Translator mutex groups: 8
-Translator total mutex groups size: 64
-Translator operators: 5619
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 4963
 Translator axioms: 0
-Translator task size: 49362
-warning: could not determine peak memory
-Writing output... [0.235s CPU, 0.227s wall-clock]
-Done! [2.453s CPU, 2.453s wall-clock]
+Translator task size: 44081
+Translator peak memory: 0 KB
+Writing output... [0.010s CPU, 0.047s wall-clock]
+Done! [0.890s CPU, 1.021s wall-clock]

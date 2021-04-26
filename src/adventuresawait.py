@@ -8,6 +8,9 @@ import questClassification
 import worldManagement
 
 def replace_action(currentDomain, action, increase):
+    #Changes the action cost in currentDomain by :
+    #   - adding 1 if increase
+    #   - substracting 1 if not increase
     costEffect = "(increase (total-cost) "
     position = currentDomain.find(":action "+action)
     print(action)
@@ -23,14 +26,15 @@ def replace_action(currentDomain, action, increase):
     else:
         number -= 1
         changedDomain = currentDomain[0:costPosition]+costEffect+str(number)+")"+currentDomain[costPosition+(len(costEffect)+2):]
-    
-    return changedDomain     
+
+    return changedDomain
 
 def write_domains(data, domain, agents, preferences):
+    # Uses replace_action to set the domain with agents preferences
     template = ""
     with open(os.path.join(data,domain),"r") as templatefile:
         template = templatefile.read()
-    
+
     for agent in agents:
         currentDomain = template
         for preference in preferences[agent]:
@@ -60,7 +64,7 @@ def main():
     agents = sorted(["baker", "king", "lumberjack", "blacksmith", "merchant", "guard", "daughter"])
 
     write_domains(data, domain, agents, worldManagement.preferences)
-    
+
     worldManagement.create(data,agents,genesis=True)
 
     too_long = 10000
@@ -71,22 +75,22 @@ def main():
     while run:
 
         for agent in agents:
-            opened_files.append(open(os.path.join(data,agent+".soln"),"w")) 
-            calculating.append(subprocess.Popen([os.path.join("metricff","Metric-FF-v2.1","ff"), '-o', os.path.join(data,"domain"+agent+".pddl"), '-f', os.path.join(data,agent+".pddl"), '-s', '3'],stdout=opened_files[-1]))
+            opened_files.append(open(os.path.join(data,agent+".soln"),"w"))
+            calculating.append(subprocess.Popen([os.path.join("metricff","Metric-FF-v2.1","ff"), '-o', os.path.join(data,agent,"domain"+agent+".pddl"), '-f', os.path.join(data,agent,agent+".pddl"), '-s', '3'],stdout=opened_files[-1]))
 
-        thinking_time = time.clock()
+        thinking_time = time.perf_counter()
         print('Thinking')
         while not finished_thinking(calculating):
             time.sleep(0.5)
             print("..", end=".")
-            thinking_time = time.clock()
+            thinking_time = time.perf_counter()
             if thinking_time > too_long:
                 break
         for opened_file in opened_files:
             opened_file.close()
 
         print("Done")
-        translations, formalplans = questTranslation.interpret(data)
+        translations, _, formalplans = questTranslation.interpret(data)
 
         print(formalplans)
 

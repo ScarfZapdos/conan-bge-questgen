@@ -1,55 +1,64 @@
 Parsing...
-Parsing: [0.016s CPU, 0.012s wall-clock]
-Normalizing task... [0.000s CPU, 0.002s wall-clock]
+Parsing: [0.000s CPU, 0.004s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
 Instantiating...
-Generating Datalog program... [0.000s CPU, 0.002s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
 Normalizing Datalog program...
-Normalizing Datalog program: [0.031s CPU, 0.034s wall-clock]
-Preparing model... [0.016s CPU, 0.016s wall-clock]
+Normalizing Datalog program: [0.020s CPU, 0.017s wall-clock]
+Preparing model... [0.010s CPU, 0.003s wall-clock]
 Generated 270 rules.
-Computing model... [0.390s CPU, 0.390s wall-clock]
+Computing model... [0.100s CPU, 0.098s wall-clock]
 6586 relevant atoms
 7645 auxiliary atoms
 14231 final queue length
-25358 total queue pushes
-Completing instantiation... [0.703s CPU, 0.706s wall-clock]
-Instantiating: [1.140s CPU, 1.153s wall-clock]
+25356 total queue pushes
+Completing instantiation... [0.230s CPU, 0.235s wall-clock]
+Instantiating: [0.360s CPU, 0.357s wall-clock]
 Computing fact groups...
 Finding invariants...
 29 initial candidates
-Finding invariants: [0.016s CPU, 0.017s wall-clock]
-Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
-Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Finding invariants: [0.000s CPU, 0.005s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
 Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
 Choosing groups...
 231 uncovered facts
-Choosing groups: [0.000s CPU, 0.001s wall-clock]
-Building translation key... [0.016s CPU, 0.003s wall-clock]
-Computing fact groups: [0.032s CPU, 0.032s wall-clock]
-Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
-Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups: [0.010s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.010s CPU, 0.008s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
 Building mutex information...
-Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
 Translating task...
 Processing axioms...
 Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
-Processing axioms: [0.031s CPU, 0.041s wall-clock]
-Translating task: [0.875s CPU, 0.873s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.012s wall-clock]
+Translating task: [0.300s CPU, 0.302s wall-clock]
 6779 effect conditions simplified
 0 implied preconditions added
 Detecting unreachable propositions...
-136 operators removed
-40 propositions removed
-Detecting unreachable propositions: [0.140s CPU, 0.146s wall-clock]
-Translator variables: 223
+8 operators removed
+0 axioms removed
+36 propositions removed
+Detecting unreachable propositions: [0.160s CPU, 0.155s wall-clock]
+Reordering and filtering variables...
+146 of 225 variables necessary.
+0 of 8 mutex groups necessary.
+5122 of 5747 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.050s CPU, 0.042s wall-clock]
+Translator variables: 146
 Translator derived variables: 0
-Translator facts: 494
-Translator goal facts: 0
-Translator mutex groups: 8
-Translator total mutex groups size: 64
-Translator operators: 5619
+Translator facts: 340
+Translator goal facts: 3
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 5122
 Translator axioms: 0
-Translator task size: 49359
-warning: could not determine peak memory
-Writing output... [0.171s CPU, 0.187s wall-clock]
-Done! [2.422s CPU, 2.435s wall-clock]
+Translator task size: 45089
+Translator peak memory: 0 KB
+Writing output... [0.040s CPU, 0.040s wall-clock]
+Done! [0.920s CPU, 0.917s wall-clock]

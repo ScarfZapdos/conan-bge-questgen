@@ -135,11 +135,11 @@ def finished_thinking(calculating):
     return (total == target)
 
 def rate_plan(plan):
-    """ Scores a quest by adding the cost (according to an agent's preferences) 
+    """ Scores a quest by adding the cost (according to an agent's preferences)
     of each action """
-    
+
     data = "world"
-    
+
     if plan == 'Cluster' or plan == [] or len(plan[0]) == 0:
         return 1000 # Probably also when the goal is already achieved
     filenames = os.listdir(data)
@@ -160,7 +160,7 @@ def rate_plan(plan):
 def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verbose = True):
     """ Chooses goals based on preferences, by creating goals stochastically and
     rating them according to action costs """
-    
+
     data = "world"
     domain = "domain.pddl"
 
@@ -176,7 +176,7 @@ def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verb
     scores = []
 
     for agent in agents:
-        
+
         all_plans = []
 
         while len(all_plans) < attempts_per_agent:
@@ -185,11 +185,11 @@ def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verb
             create(data, [agent])
             if verbose:
               print("Wait")
-            time.sleep(2)
-            
+            #time.sleep(2)
+
             calculating = [questPlanning.plan_quest(agent)]
             too_long = 300 # 5 minutes
-            thinking_time = time.clock()
+            thinking_time = time.perf_counter()
             thinking_timelast = thinking_time
             while not finished_thinking(calculating):
                 time.sleep(0.5)
@@ -216,7 +216,7 @@ def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verb
                 scores.append(all_plans[0][0])
                 if verbose:
                   print(good_goals[-1],all_plans[0][0])
-    
+
     if verbose:
       print("Should be empty now:")
       print(goals)
@@ -233,7 +233,7 @@ def random_goals(agents,subgoals=3):
     #possible_goals = predicates[2:5]+predicates[6:7]+predicates[8:9]+predicates[10:]
     possible_goals = list(predicates_as_goals)
     possible_objects = list(objects)
-    
+
     for agent in agents:
         agent_goals = []
         for _ in range(random.randint(1,subgoals)):
@@ -279,8 +279,8 @@ def random_goals(agents,subgoals=3):
 
                 new_goal += " "+part
             agent_goals[j] = new_goal
-        
-        # Makes sure no agent wants the same character dead and alive / doesn't work perfectly yet for 3+ goals 
+
+        # Makes sure no agent wants the same character dead and alive / doesn't work perfectly yet for 3+ goals
         #print(agent)
         #print(agent_goals)
         contradictionCharacter = ""
@@ -297,7 +297,7 @@ def random_goals(agents,subgoals=3):
           agent_goals.remove(toChange)
         #print(agent_goals)
         # End of check
-        
+
         if len(agent_goals) > 1:
             goals.append("(and"+"".join(agent_goals)+")")
         else:

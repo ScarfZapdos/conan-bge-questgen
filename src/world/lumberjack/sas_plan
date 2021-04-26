@@ -1,3 +1,5 @@
-(explore you field cave)
-(giveto you daughter sword cave)
-; cost = 4 (general cost)
+(escort you baker bakery village)
+(kill you wolf pelt village sword)
+(escort you baker village field)
+(giveto you king sword field)
+; cost = 6 (general cost)

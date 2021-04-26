@@ -1,0 +1,11 @@
+
+ff: parsing domain file
+domain 'BGE' defined
+ ... done.
+ff: parsing problem file
+problem 'GENERALKEHCK' defined
+ ... done.
+
+
+undeclared predicate COOPERATIVE used in domain definition
+

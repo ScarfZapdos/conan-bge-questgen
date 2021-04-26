@@ -2,7 +2,7 @@ import os
 
 def translate(action):
     """ Translates a quest from the PDDL format to English  """
-    
+
     action = action.replace("\\n","")[1:-2].split()
     verb = action[0]
     sentence = ""
@@ -26,18 +26,18 @@ def translate(action):
 def communication_filter(quest, difficulty):
     """ Hides a number of steps in the quest equal to the difficulty setting
     2 would hide 50%, one every other step. 3 would hide two steps between each revealed step. """
-    
+
     length = len(quest)
 
     revealed = list(range(0,length,difficulty)) # if it starts at 0: always gives the first step
-    
+
     for i,step in enumerate(quest):
         if i not in revealed:
             quest[i] = "?"
 
     return quest
 
-def interpret(data, difficulty=1): # Higher difficulty leads to several hidden steps 
+def interpret(data, difficulty=1): # Higher difficulty leads to several hidden steps
     """ Reads a solution file and produces a quest """
 
     quests = []
