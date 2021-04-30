@@ -5,6 +5,6 @@ Reference : Let CONAN tell you a story: Procedural quest generation, or multi-ag
 cd src/downward   
 ./build.py   
 cd ../   
-python3 adventureawaitbge.py
+python3 adventuresawaitbge.py
 
 It will generate a quest for each implemented characters of BGE.
