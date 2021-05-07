@@ -139,6 +139,7 @@ goals = []
 preferences = dict()
 preferences["peyj"] = ["+kill","-exchange","-use","-escort"]
 preferences["generalkehck"] = ["-kill","+escort","-capture","-spy"]
+preferences["jade"] = ["-stealth","-use","-exchange","-explore","+kill"]
 
 def finished_thinking(calculating):
     total = len(calculating)

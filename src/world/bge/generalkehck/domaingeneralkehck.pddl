@@ -11,6 +11,7 @@
         (at ?c ?l)
         (player ?p)
         (captive ?captor ?captive)
+        (experimented ?i)
         (explored ?l)
         (used ?i)
         (wants ?c ?i)

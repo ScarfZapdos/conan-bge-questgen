@@ -10,6 +10,7 @@
         (has ?clm ?i)
         (at ?c ?l)
         (player ?p)
+        (experimented ?i)
         (captive ?captor ?captive)
         (explored ?l)
         (used ?i)

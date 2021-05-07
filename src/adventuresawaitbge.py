@@ -61,7 +61,7 @@ def main():
 
     domain = "domain.pddl"
 
-    agents = sorted(["peyj","generalkehck"])
+    agents = sorted(["peyj","generalkehck","jade"])
 
     write_domains(data, domain, agents, worldManagementbge.preferences)
 

@@ -13,18 +13,24 @@ ff: search configuration is weighted A* with weight 5.
 Metric is ((1.00*[RF0](TOTAL-COST)) - () + 0.00)
 COST MINIMIZATION DONE (WITH cost-minimizing relaxed plans).
 
-advancing to goal distance:    1
+advancing to goal distance:    4
+                               3
+                               2
+                               1
                                0
 
 ff: found legal plan as follows
-step    0: DEFEND YOU JADE LIGHTHOUSE
-plan cost: 2.000000
+step    0: MOVE YOU BLACKISLE LIGHTHOUSE
+        1: KILL YOU PTEROLIMAX PEARL1 BLACKISLE DAIJO2
+        2: GETFROMLOCATION YOU BLACKISLE PEARL1
+        3: USE YOU PEARL1
+plan cost: 6.000000
 
-time spent:   34.42 seconds instantiating 1544139 easy, 50040 hard action templates
-               0.12 seconds reachability analysis, yielding 543 facts and 17050 actions
-               0.02 seconds creating final representation with 474 relevant facts, 1 relevant fluents
-               0.09 seconds computing LNF
-               0.08 seconds building connectivity graph
-               0.01 seconds searching, evaluating 32 states, to a max depth of 0
-              34.74 seconds total time
+time spent:   36.20 seconds instantiating 1544139 easy, 50040 hard action templates
+               0.14 seconds reachability analysis, yielding 543 facts and 17050 actions
+               0.01 seconds creating final representation with 474 relevant facts, 1 relevant fluents
+               0.08 seconds computing LNF
+               0.06 seconds building connectivity graph
+               0.05 seconds searching, evaluating 101 states, to a max depth of 0
+              36.54 seconds total time
 

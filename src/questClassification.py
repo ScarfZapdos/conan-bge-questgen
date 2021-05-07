@@ -265,7 +265,7 @@ def classify_fuzzy(quest):
         while value in scorescopy:
             indices.append(scorescopy.index(value))
             scorescopy[indices[-1]] = 0
-
+    print([motivations[index] for index in indices])
     return ([motivations[index] for index in indices])
 
 #classify_fuzzy(['(explore you bakery village)', '(take you guard sword village)', '(move you castle village)', '(giveto you king sword castle)', '(escort you king castle field)', '(take you king sword field)', '(report you king sword field)', '(kill you king sword field sword)'])
