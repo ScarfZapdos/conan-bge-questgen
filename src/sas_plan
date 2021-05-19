@@ -1,5 +1,3 @@
-(move you mingtzushop lighthouse)
-(kill you mingtzu pearl5 mingtzushop daijo2)
-(getfromlocation you mingtzushop pearl5)
-(use you pearl5)
-; cost = 6 (general cost)
+(move you factory lighthouse)
+(defend you doubleh factory)
+; cost = 3 (general cost)

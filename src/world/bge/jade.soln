@@ -13,24 +13,23 @@ ff: search configuration is weighted A* with weight 5.
 Metric is ((1.00*[RF0](TOTAL-COST)) - () + 0.00)
 COST MINIMIZATION DONE (WITH cost-minimizing relaxed plans).
 
-advancing to goal distance:    4
-                               3
+advancing to goal distance:    3
                                2
                                1
                                0
 
 ff: found legal plan as follows
-step    0: MOVE YOU MINGTZUSHOP LIGHTHOUSE
-        1: KILL YOU MINGTZU PEARL5 MINGTZUSHOP DAIJO2
-        2: GETFROMLOCATION YOU MINGTZUSHOP PEARL5
-        3: USE YOU PEARL5
+step    0: MOVE YOU FACTORY LIGHTHOUSE
+        1: LISTEN YOU DOUBLEH FACTORY CONSPIRACY
+        2: MOVE YOU LIGHTHOUSE FACTORY
+        3: REPORT YOU PEYJ CONSPIRACY LIGHTHOUSE
 plan cost: 6.000000
 
-time spent:   37.14 seconds instantiating 1544139 easy, 50040 hard action templates
-               0.15 seconds reachability analysis, yielding 543 facts and 17050 actions
-               0.03 seconds creating final representation with 474 relevant facts, 1 relevant fluents
-               0.06 seconds computing LNF
-               0.09 seconds building connectivity graph
-               0.07 seconds searching, evaluating 104 states, to a max depth of 0
-              37.54 seconds total time
+time spent:   36.40 seconds instantiating 1544139 easy, 50040 hard action templates
+               0.14 seconds reachability analysis, yielding 543 facts and 17050 actions
+               0.01 seconds creating final representation with 474 relevant facts, 1 relevant fluents
+               0.08 seconds computing LNF
+               0.10 seconds building connectivity graph
+               0.04 seconds searching, evaluating 75 states, to a max depth of 0
+              36.77 seconds total time
 

@@ -15,7 +15,7 @@ predicates_as_goals = [
         "(has ?c ?o)",
         "(cooperative ?c)",
         "(at ?c ?l)",
-        "(character ?c)",
+#        "(character ?c)",
         "(captive ?p ?c)",
         "(defended ?c)",
         "(defended ?i)",
