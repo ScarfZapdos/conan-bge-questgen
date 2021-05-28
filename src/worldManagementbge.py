@@ -10,7 +10,7 @@ import time
 header = "(define (problem agent)\n(:domain bge)\n(:objects "
 
 predicates_as_goals = [
-        "(has ?cl ?i)",
+        "(has ?c ?i)",
         "(has ?p ?o)",
         "(has ?c ?o)",
         "(cooperative ?c)",
@@ -20,11 +20,68 @@ predicates_as_goals = [
         "(defended ?c)",
         "(defended ?i)",
         "(dead ?m)",
-        "(experimented ?i)",
+#        "(experimented ?i)",
         "(explored ?l)",
         "(used ?i)"]
 
 objects = set(["you","jade","doubleh","peyj","secundo","hahn","governor","highpriest","generalkehck","mingtzu","issam","sarco","reaper","imperator","pterolimax","spiriteater","albinorat","aurorawhale","seagull","armadillo","vorax","greenspider","lighthouse","lagoon","lagoon2","city","pedestrian","akuda","mingtzushop","mammago","blackisle","slaughterhouse","factory","selene","daijo","daijo2","gyrodisk","starkos","kbups","pearl1","pearl2","pearl3","pearl4","pearl5","squarekey","circlekey","peyjmdisk","pod","conspiracy","treasureloc"])
+
+writeobjects = "highpriest peyj governor hahn mingtzu issam doubleh jade generalkehck secundo - character\n  you - player\n  spiriteater pterolimax sarco imperator reaper - monster\n  aurorawhale greenspider seagull albinorat armadillo vorax - animal\n  selene lagoon lagoon2 mammago slaughterhouse lighthouse city pedestrian factory akuda mingtzushop blackisle - location\n  peyjmdisk pod pearl1 kbups circlekey starkos pearl2 pearl5 pearl4 pearl3 squarekey - artifact\n  daijo daijo2 gyrodisk - weapon\n  treasureloc conspiracy - information"
+
+writefacts = set(["(= (total-cost) 0)",
+"(adjacent lighthouse lagoon)",
+"(adjacent mammago lagoon)",
+"(adjacent lagoon city)",
+"(adjacent city pedestrian)",
+"(adjacent pedestrian akuda)",
+"(adjacent pedestrian mingtzushop)",
+"(adjacent city lagoon2)",
+"(adjacent lagoon2 factory)",
+"(adjacent lagoon2 slaughterhouse)",
+"(adjacent lagoon2 blackisle)",
+"(adjacent lagoon selene)",
+"(at you lighthouse)",
+"(at jade lighthouse)",
+"(at doubleh factory)",
+"(at peyj lighthouse)",
+"(at secundo lighthouse)",
+"(at hahn akuda)",
+"(at governor city)",
+"(at highpriest selene)",
+"(at generalkehck city)",
+"(at mingtzu mingtzushop)",
+"(at issam mammago)",
+"(at sarco blackisle)",
+"(at reaper factory)",
+"(at imperator lagoon)",
+"(at spiriteater slaughterhouse)",
+"(at pterolimax blackisle)",
+"(at armadillo lighthouse)",
+"(at albinorat pedestrian)",
+"(at aurorawhale lagoon2)",
+"(at seagull lagoon)",
+"(at vorax slaughterhouse)",
+"(at greenspider factory)",
+"(friend jade peyj)",
+"(friend jade secundo)",
+"(friend hahn doubleh)",
+"(has jade daijo)",
+"(has you daijo2)",
+"(has reaper gyrodisk)",
+"(has mingtzu starkos)",
+"(has mingtzu kbups)",
+"(has pterolimax pearl1)",
+"(has reaper pearl2)",
+"(has imperator pearl3)",
+"(has spiriteater pearl4)",
+"(has mingtzu pearl5)",
+"(has peyj peyjmdisk)",
+"(has issam pod)",
+"(has doubleh conspiracy)",
+"(has doubleh circlekey)",
+"(has spiriteater treasureloc)",
+"(captive reaper doubleh)",
+])
 
 facts = set([ "(player you)",
 "(= (total-cost) 0)",
@@ -205,7 +262,7 @@ def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verb
             #time.sleep(2)
 
             calculating = [questPlanning.plan_quest(agent)]
-            too_long = 300 # 5 minutes
+            too_long = 30000 # 5 minutes
             thinking_time = time.perf_counter()
             thinking_timelast = thinking_time
             while not finished_thinking(calculating):
@@ -255,7 +312,6 @@ def random_goals(agents,subgoals=3):
         agent_goals = []
         for _ in range(random.randint(1,subgoals)):
             agent_goals.append(random.choice(possible_goals))
-        #print(agent_goals)
         for j,agent_goal in enumerate(agent_goals):
             goal = agent_goal.split()
             new_goal = ""
@@ -343,10 +399,9 @@ def create(data,agents, quest_per_agent = 1, attempts_per_agent = 4, genesis=Fal
         with open(os.path.join(data,agent,agent+".pddl"),"w") as opened_file:
             personal_header = header.replace("agent",agent)
             opened_file.write(personal_header)
-            for obj in objects:
-                opened_file.write(obj+" ")
+            opened_file.write(writeobjects)#+" ")
             opened_file.write(")\n(:init ")
-            for fact in facts:
+            for fact in writefacts:
                 opened_file.write(fact+"\n")
             opened_file.write(")\n")
 

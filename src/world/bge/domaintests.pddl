@@ -1,22 +1,17 @@
 (define (domain bge)
     (:requirements :action-costs :typing)
     (:types animal monster character - living
-      ;friend enemy - relationship
       photo weapon artifact - item
       information
       player
       location
       character item - target)
     (:predicates
-        ;(location ?l)
-        ;(item ?i)
-        ;(character ?c)
         (defended ?c)
         (sneaky ?c)
         (cooperative ?c)
         (has ?clm ?i)
         (at ?c ?l)
-        ;(player ?p)
         (experimented ?i)
         (captive ?captor ?captive)
         (explored ?l)
@@ -24,13 +19,8 @@
         (wants ?c ?i)
         (dead ?c)
         (damaged ?i)
-        ;(weapon ?w)
-        ;(information ?info)
         (adjacent ?la ?lb)
-        ;(monster ?m)
         (friend ?c1 ?c2)
-        ;(animal ?a)
-        ;(bad ?c)
         )
 
     (:functions
@@ -87,6 +77,11 @@
         :parameters (?p - player ?to ?from - location)
         :precondition (and (explored ?to) (adjacent ?to ?from) (at ?p ?from))
         :effect (and (at ?p ?to) (not (at ?p ?from)) (increase (total-cost) 1)))
+
+    (:action kill
+        :parameters (?p - player ?charA - living ?loc - location ?w - weapon)
+        :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?p ?w))
+        :effect (and (dead ?charA) (increase (total-cost) 3)))
 
     (:action killforitem
         :parameters (?p - player ?charA - living ?i - item ?loc - location ?w - weapon)
