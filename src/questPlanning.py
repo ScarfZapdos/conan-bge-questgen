@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-heuristic = "astar(ipdb())"
+heuristic = "astar(lmcut())"
 def plan_quest(agent):
 
 #    os.chdir(os.path.join("world",agent))
@@ -21,9 +21,8 @@ def plan_quest(agent):
 #            subprocess.call(["mnt/e/Work/downward-issue698-v1/builds/release32/bin/preprocess"], stdin=outputsas, stdout=garbage2)
 #    with open("output","r") as output:
     with open(os.path.join("..",agent+".soln"),"w") as solution:
-        #calc = subprocess.call(['mnt/e/anaconda/bin/python3.8', 'mnt/e/Work/fast-downward/fast-downward.py', "domain"+agent+".pddl", agent+".pddl",'--search', heuristic], stdout=solution)
-        calc = subprocess.Popen(["java", '-jar', '../../../aquaplanning-master/target/aquaplanning-0.0.1-SNAPSHOT-jar-with-dependencies.jar', "domain"+agent+".pddl", agent+".pddl","-s=aStar"], stdout=solution)
-        print("the commandline is {}".format(["java", '-jar', '../../../aquaplanning-master/target/aquaplanning-0.0.1-SNAPSHOT-jar-with-dependencies.jar', "domain"+agent+".pddl", agent+".pddl"]))
+        calc = subprocess.Popen(['/mnt/e/anaconda/bin/python3', '/mnt/e/Work/conan-bge-questgen/src/downward/fast-downward.py', "domain"+agent+".pddl", agent+".pddl",'--search', heuristic], stdout=solution)
+        #calc = subprocess.Popen(["java", '-jar', '../../../aquaplanning-master/target/aquaplanning-0.0.1-SNAPSHOT-jar-with-dependencies.jar', "domain"+agent+".pddl", agent+".pddl","-s=aStar"], stdout=solution)
 
     os.chdir("..")
     os.chdir("..")

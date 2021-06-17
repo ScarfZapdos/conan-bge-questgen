@@ -60,7 +60,6 @@ def interpret(data, difficulty=1): # Higher difficulty leads to several hidden s
                         if "Plan length:" in lines:
 
                             break
-
                         newQuest.append('('+" ".join(lines.split()[:-1])+')')
                     """
                 if 'plan cost' in lines:
@@ -82,10 +81,10 @@ def interpret(data, difficulty=1): # Higher difficulty leads to several hidden s
         solutions.remove(indices)
 
     translations = []
-    for quest in quests:
-        translation = []
-        for action in quest:
-            translation.append(translate(action))
-        translations.append(communication_filter(translation,difficulty))
+    #for quest in quests:
+        #translation = []
+        #for action in quest:
+        #    translation.append(translate(action))
+        #translations.append(communication_filter(translation,difficulty))
 
     return translations, quests, solutions

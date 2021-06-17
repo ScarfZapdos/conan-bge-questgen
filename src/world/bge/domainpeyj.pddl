@@ -1,7 +1,8 @@
 (define (domain bge)
-    (:requirements :action-costs :typing)
+    (:requirements :action-costs :typing :fluents)
     (:types animal monster character - living
       photo weapon artifact - item
+      wallet
       information
       player
       location
@@ -24,7 +25,13 @@
         )
 
     (:functions
-        (total-cost))
+        (total-cost)
+        (money ?w - wallet))
+
+    (:action buy
+      :parameters (?p - player ?c - character ?l - location ?w1 ?w2 - wallet ?i - item)
+      :precondition (and (at ?p ?l) (at ?c ?l) (not (dead ?c)) (has ?c ?i) (>= (money ?w1) 1) (has ?p ?w1) (has ?c ?w2))
+      :effect (and (has ?p ?i) (not (has ?c ?i)) (decrease (money ?w1) 1) (increase (money ?w2) 1) (increase (total-cost) 2)))
 
     (:action capture ; capture a living
         :parameters (?p - player ?char - living ?loc - location)
@@ -109,6 +116,10 @@
         :precondition (and (not (dead ?char)) (at ?p ?loc) (at ?char ?loc) (has ?p ?info))
         :effect (and (has ?char ?info) (increase (total-cost) 2)))
 
+    (:action sell
+        :parameters (?p - player ?c - character ?l - location ?w1 ?w2 - wallet ?i - item)
+        :precondition (and (at ?p ?l) (at ?c ?l) (not (dead ?c)) (has ?p ?i) (>= (money ?w2) 1) (has ?p ?w1) (has ?c ?w2))
+        :effect (and (has ?c ?i) (not (has ?p ?i)) (decrease (money ?w2) 1) (increase (money ?w1) 1) (increase (total-cost) 2)))
 
     (:action spy
         :parameters (?p - player ?char - character ?loc - location ?info - information)
@@ -124,12 +135,12 @@
 
     (:action take
         :parameters (?p - player ?char - living ?i2 - item ?loc - location)
-        :precondition (and (has ?char ?i2) (at ?p ?loc) (at ?char ?loc) (or (cooperative ?char) (sneaky ?p)))
+        :precondition (and (has ?char ?i2) (at ?p ?loc) (at ?char ?loc) (cooperative ?char))
         :effect (and (has ?p ?i2) (not (has ?char ?i2)) (increase (total-cost) 2)))
 
     (:action use
         :parameters (?p - player ?i - item)
         :precondition (has ?p ?i)
-        :effect (and (used ?i) (increase (total-cost) 0))))
+        :effect (and (used ?i) (increase (total-cost) 0)))
 
 )

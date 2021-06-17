@@ -26,7 +26,7 @@ predicates_as_goals = [
 
 objects = set(["you","jade","doubleh","peyj","secundo","hahn","governor","highpriest","generalkehck","mingtzu","issam","sarco","reaper","imperator","pterolimax","spiriteater","albinorat","aurorawhale","seagull","armadillo","vorax","greenspider","lighthouse","lagoon","lagoon2","city","pedestrian","akuda","mingtzushop","mammago","blackisle","slaughterhouse","factory","selene","daijo","daijo2","gyrodisk","starkos","kbups","pearl1","pearl2","pearl3","pearl4","pearl5","squarekey","circlekey","peyjmdisk","pod","conspiracy","treasureloc"])
 
-writeobjects = "highpriest peyj governor hahn mingtzu issam doubleh jade generalkehck secundo - character\n  you - player\n  spiriteater pterolimax sarco imperator reaper - monster\n  aurorawhale greenspider seagull albinorat armadillo vorax - animal\n  selene lagoon lagoon2 mammago slaughterhouse lighthouse city pedestrian factory akuda mingtzushop blackisle - location\n  peyjmdisk pod pearl1 kbups circlekey starkos pearl2 pearl5 pearl4 pearl3 squarekey - artifact\n  daijo daijo2 gyrodisk - weapon\n  treasureloc conspiracy - information"
+writeobjects = "highpriest peyj governor hahn mingtzu issam doubleh jade generalkehck secundo - character\n  you - player\n  spiriteater pterolimax sarco imperator reaper - monster\n  aurorawhale greenspider seagull albinorat armadillo vorax - animal\n  selene lagoon lagoon2 mammago slaughterhouse lighthouse city pedestrian factory akuda mingtzushop blackisle - location\n  peyjmdisk pod pearl1 kbups circlekey starkos pearl2 pearl5 pearl4 pearl3 squarekey - artifact\n  daijo daijo2 gyrodisk - weapon\n  treasureloc conspiracy - information\n  walletplayer walletmingtzu walletissam - wallet"
 
 writefacts = set(["(= (total-cost) 0)",
 "(adjacent lighthouse lagoon)",
@@ -81,6 +81,12 @@ writefacts = set(["(= (total-cost) 0)",
 "(has doubleh circlekey)",
 "(has spiriteater treasureloc)",
 "(captive reaper doubleh)",
+"(has you walletplayer)",
+"(has mingtzu walletmingtzu)",
+"(has issam walletissam)",
+"(= (money walletplayer) 0)",
+"(= (money walletmingtzu) 50)",
+"(= (money walletissam) 50)"
 ])
 
 facts = set([ "(player you)",
@@ -187,6 +193,12 @@ facts = set([ "(player you)",
 "(information treasureloc)",
 "(has spiriteater treasureloc)",
 "(captive reaper doubleh)",
+"(has you walletplayer)",
+"(has mingtzu walletmingtzu)",
+"(has issam walletissam)",
+"(= (money walletplayer) 0)",
+"(= (money walletmingtzu) 50)",
+"(= (money walletissam) 50)"
 ])
 
 #allgoals = ["(and (dead troll) (dead blacksmith))","(at you forge)"]

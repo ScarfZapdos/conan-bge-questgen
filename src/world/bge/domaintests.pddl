@@ -130,6 +130,6 @@
     (:action use
         :parameters (?p - player ?i - item)
         :precondition (has ?p ?i)
-        :effect (and (used ?i) (increase (total-cost) 1))))
+        :effect (and (used ?i) (increase (total-cost) 1)))
 
 )

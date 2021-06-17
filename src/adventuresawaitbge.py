@@ -76,7 +76,7 @@ def main():
 
         for agent in agents:
             opened_files.append(open(os.path.join(data,agent+".soln"),"w"))
-            calculating.append(subprocess.Popen([os.path.join("metricff","Metric-FF-v2.1","ff"), '-o', os.path.join(data,agent,"domain"+agent+".pddl"), '-f', os.path.join(data,agent,agent+".pddl"), '-s', '3'],stdout=opened_files[-1]))
+#            calculating.append(subprocess.Popen([os.path.join("metricff","Metric-FF-v2.1","ff"), '-o', os.path.join(data,agent,"domain"+agent+".pddl"), '-f', os.path.join(data,agent,agent+".pddl"), '-s', '3'],stdout=opened_files[-1]))
 
         thinking_time = time.perf_counter()
         print('Thinking')
