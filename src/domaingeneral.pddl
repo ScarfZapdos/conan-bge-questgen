@@ -26,7 +26,7 @@
     (:functions
         (total-cost))
 
-    (:action buy
+    (:action buy ; buy item from character with pearls
       :parameters (?p - player ?c - character ?l - location ?pr - pearl ?i - item)
       :precondition (and (at ?p ?l) (at ?c ?l) (not (dead ?c)) (has ?c ?i) (has ?p ?pr))
       :effect (and (has ?p ?i) (not (has ?c ?i)) (not (has ?p ?pr)) (has ?c ?pr) (increase (total-cost) 2)))
@@ -34,101 +34,101 @@
     (:action capture ; capture a living
         :parameters (?p - player ?char - living ?loc - location)
         :precondition (and (at ?p ?loc) (at ?char ?loc) (not (dead ?char)))
-        :effect (and (captive ?p ?char) (increase (total-cost) 1)))
+        :effect (and (captive ?p ?char) (increase (total-cost) 2)))
 
     (:action damage ; damage an item
         :parameters (?p - player ?i - item ?w - weapon)
         :precondition (and (has ?p ?i) (has ?p ?w))
         :effect (and (damaged ?i) (increase (total-cost) 2)))
 
-    (:action defend
+    (:action defend ; defend a character/item
         :parameters (?p - player ?todefend - target ?loc - location)
         :precondition (and (at ?p ?loc) (not (dead ?todefend))
                       (or (at ?todefend ?loc)
                           (has ?loc ?todefend)))
         :effect (and (defended ?todefend) (increase (total-cost) 2)))
 
-    (:action escort
+    (:action escort ; escort a character to another location
         :parameters (?p - player ?charA - character ?locA ?locB - location)
         :precondition (and  (at ?p ?locA) (at ?charA ?locA) (adjacent ?locA ?locB) (cooperative ?charA) (not (dead ?charA)))
-        :effect (and (at ?p ?locB) (at ?charA ?locB) (not (at ?p ?locA)) (not (at ?charA ?locA)) (increase (total-cost) 5)))
+        :effect (and (at ?p ?locB) (at ?charA ?locB) (not (at ?p ?locA)) (not (at ?charA ?locA)) (increase (total-cost) 3)))
 
-    (:action explore
+    (:action explore ; move to a location for the first time
         :parameters (?p - player ?locA ?locB - location)
         :precondition (and (at ?p ?locA) (adjacent ?locA ?locB))
         :effect (and (explored ?locB) (not (at ?p ?locA)) (at ?p ?locB) (increase (total-cost) 2)))
 
-    (:action getfromlocation
+    (:action getfromlocation ; harvest an item at a location
         :parameters (?p - player ?loc - location ?i - item)
         :precondition (and (has ?loc ?i) (at ?p ?loc))
-        :effect (and (has ?p ?i) (not (has ?loc ?i)) (increase (total-cost) 1)))
+        :effect (and (has ?p ?i) (not (has ?loc ?i)) (increase (total-cost) 2)))
 
-    (:action giveto
+    (:action giveto ; give item to character
         :parameters (?p - player ?charB - character ?i - item ?loc - location)
         :precondition (and (not (dead ?charB)) (has ?p ?i) (at ?charB ?loc) (at ?p ?loc))
         :effect (and (has ?charB ?i) (cooperative ?charB) (not (has ?p ?i)) (increase (total-cost) 2)))
 
-    (:action move
+    (:action move ; change location
         :parameters (?p - player ?to ?from - location)
         :precondition (and (explored ?to) (adjacent ?to ?from) (at ?p ?from))
         :effect (and (at ?p ?to) (not (at ?p ?from)) (increase (total-cost) 1)))
 
-    (:action kill
+    (:action kill ; kill
         :parameters (?p - player ?charA - living ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?p ?w))
         :effect (and (dead ?charA) (increase (total-cost) 3)))
 
-    (:action killforitem
+    (:action killforitem ; harvest item by killing its owner
         :parameters (?p - player ?charA - monster ?i - item ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?charA ?i) (has ?p ?w))
         :effect (and (has ?loc ?i) (dead ?charA) (increase (total-cost) 3)))
 
-    (:action killforinfo
+    (:action killforinfo ; gather information by killing its owner
         :parameters (?p - player ?charA - monster ?info - information ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?charA ?info) (has ?p ?w))
         :effect (and (has ?p ?info) (dead ?charA) (increase (total-cost) 3)))
 
-    (:action listen
+    (:action listen ; gather information from cooperative character
         :parameters (?p - player ?char - character ?loc - location ?info - information)
-        :precondition (and (not (dead ?char)) (at ?p ?loc) (at ?char ?loc) (has ?char ?info))
+        :precondition (and (not (dead ?char)) (at ?p ?loc) (at ?char ?loc) (has ?char ?info) (cooperative ?char))
         :effect (and (has ?p ?info) (increase (total-cost) 2)))
 
-    (:action read
+    (:action read ; gather information from item
         :parameters (?p - player ?loc - location ?i - item ?info - information)
         :precondition (and (at ?p ?loc) (has ?loc ?i) (has ?i ?info))
         :effect (and (has ?p ?info) (increase (total-cost) 2)))
 
-    (:action repair
+    (:action repair ; repair a damaged item
         :parameters (?p - player ?loc - location ?i - item)
         :precondition (and (damaged ?i) (or (and (at ?p ?loc) (has ?loc ?i))) (has ?p ?i))
         :effect (and (not (damaged ?i)) (increase (total-cost) 2)))
 
 
-    (:action report
+    (:action report ; spread information to a character
         :parameters (?p - player ?char - character ?info - information ?loc - location)
         :precondition (and (not (dead ?char)) (at ?p ?loc) (at ?char ?loc) (has ?p ?info))
         :effect (and (has ?char ?info) (increase (total-cost) 2)))
 
-    (:action spy
+    (:action spy ; gather information being sneaky
         :parameters (?p - player ?char - character ?loc - location ?info - information)
         :precondition (and (at ?p ?loc) (not (dead ?char)) (at ?char ?loc) (sneaky ?p) (has ?char ?info))
-        :effect (and (has ?p ?info) (increase (total-cost) 1)))
+        :effect (and (has ?p ?info) (increase (total-cost) 2)))
 
 
-    (:action stealth
+    (:action stealth ; go sneaky mode
         :parameters (?p - player)
         :precondition (not (sneaky ?p))
         :effect (and (sneaky ?p) (increase (total-cost) 1)))
 
 
-    (:action take
+    (:action take ; get item from cooperative character
         :parameters (?p - player ?char - living ?i2 - item ?loc - location)
         :precondition (and (has ?char ?i2) (at ?p ?loc) (at ?char ?loc) (cooperative ?char))
         :effect (and (has ?p ?i2) (not (has ?char ?i2)) (increase (total-cost) 2)))
 
-    (:action use
+    (:action use ; use item
         :parameters (?p - player ?i - item)
         :precondition (has ?p ?i)
-        :effect (and (used ?i) (increase (total-cost) 0)))
+        :effect (and (used ?i) (increase (total-cost) 2)))
 
 )

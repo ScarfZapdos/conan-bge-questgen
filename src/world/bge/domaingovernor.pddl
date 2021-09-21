@@ -34,7 +34,7 @@
     (:action capture ; capture a living
         :parameters (?p - player ?char - living ?loc - location)
         :precondition (and (at ?p ?loc) (at ?char ?loc) (not (dead ?char)))
-        :effect (and (captive ?p ?char) (increase (total-cost) 1)))
+        :effect (and (captive ?p ?char) (increase (total-cost) 0)))
 
     (:action damage ; damage an item
         :parameters (?p - player ?i - item ?w - weapon)
@@ -51,12 +51,12 @@
     (:action escort
         :parameters (?p - player ?charA - character ?locA ?locB - location)
         :precondition (and  (at ?p ?locA) (at ?charA ?locA) (adjacent ?locA ?locB) (cooperative ?charA) (not (dead ?charA)))
-        :effect (and (at ?p ?locB) (at ?charA ?locB) (not (at ?p ?locA)) (not (at ?charA ?locA)) (increase (total-cost) 5)))
+        :effect (and (at ?p ?locB) (at ?charA ?locB) (not (at ?p ?locA)) (not (at ?charA ?locA)) (increase (total-cost) 4)))
 
     (:action explore
         :parameters (?p - player ?locA ?locB - location)
         :precondition (and (at ?p ?locA) (adjacent ?locA ?locB))
-        :effect (and (explored ?locB) (not (at ?p ?locA)) (at ?p ?locB) (increase (total-cost) 2)))
+        :effect (and (explored ?locB) (not (at ?p ?locA)) (at ?p ?locB) (increase (total-cost) 1)))
 
     (:action getfromlocation
         :parameters (?p - player ?loc - location ?i - item)
@@ -66,7 +66,7 @@
     (:action giveto
         :parameters (?p - player ?charB - character ?i - item ?loc - location)
         :precondition (and (not (dead ?charB)) (has ?p ?i) (at ?charB ?loc) (at ?p ?loc))
-        :effect (and (has ?charB ?i) (not (has ?p ?i)) (increase (total-cost) 2)))
+        :effect (and (has ?charB ?i) (cooperative ?charB) (not (has ?p ?i)) (increase (total-cost) 2)))
 
     (:action move
         :parameters (?p - player ?to ?from - location)
@@ -112,13 +112,13 @@
     (:action spy
         :parameters (?p - player ?char - character ?loc - location ?info - information)
         :precondition (and (at ?p ?loc) (not (dead ?char)) (at ?char ?loc) (sneaky ?p) (has ?char ?info))
-        :effect (and (has ?p ?info) (increase (total-cost) 1)))
+        :effect (and (has ?p ?info) (increase (total-cost) 2)))
 
 
     (:action stealth
         :parameters (?p - player)
         :precondition (not (sneaky ?p))
-        :effect (and (sneaky ?p) (increase (total-cost) 1)))
+        :effect (and (sneaky ?p) (increase (total-cost) 2)))
 
 
     (:action take
@@ -129,6 +129,6 @@
     (:action use
         :parameters (?p - player ?i - item)
         :precondition (has ?p ?i)
-        :effect (and (used ?i) (increase (total-cost) 0)))
+        :effect (and (used ?i) (increase (total-cost) -1)))
 
 )

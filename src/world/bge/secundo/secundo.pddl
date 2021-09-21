@@ -1,4 +1,4 @@
-(define (problem peyj)
+(define (problem secundo)
 (:domain bge)
 (:objects highpriest peyj governor hahn mingtzu issam doubleh jade generalkehck secundo - character
   you - player
@@ -63,5 +63,5 @@
 (adjacent pedestrian akuda)
 (at reaper factory)
 )
-(:goal (and (captive you secundo) (used pearl5)))
+(:goal (and (captive you peyj) (captive you hahn) (used pearl2)))
 (:metric minimize (total-cost)))

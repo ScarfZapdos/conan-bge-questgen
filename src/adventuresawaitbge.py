@@ -61,7 +61,8 @@ def main():
 
     domain = "domain.pddl"
 
-    agents = sorted(["peyj","generalkehck","jade"])
+    #agents = sorted(["peyj","generalkehck","jade","secundo","governor","issam"])
+    agents = sorted(["generalkehck"])
 
     write_domains(data, domain, agents, worldManagementbge.preferences)
 
@@ -76,7 +77,7 @@ def main():
 
         for agent in agents:
             opened_files.append(open(os.path.join(data,agent+".soln"),"w"))
-#            calculating.append(subprocess.Popen([os.path.join("metricff","Metric-FF-v2.1","ff"), '-o', os.path.join(data,agent,"domain"+agent+".pddl"), '-f', os.path.join(data,agent,agent+".pddl"), '-s', '3'],stdout=opened_files[-1]))
+            #calculating.append(subprocess.Popen([os.path.join("metricff","Metric-FF-v2.1","ff"), '-o', os.path.join(data,agent,"domain"+agent+".pddl"), '-f', os.path.join(data,agent,agent+".pddl"), '-s', '3'],stdout=opened_files[-1]))
 
         thinking_time = time.perf_counter()
         print('Thinking')
@@ -100,9 +101,9 @@ def main():
             print(translation,motivation)
 
         print("Enter 'exit' to end.")
-        action = input()
+        #action = input()
 
-        if action == "exit":
+        if True:
             run = False
         else:
             worldManagementbge.update(data, action, agents)

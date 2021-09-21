@@ -29,7 +29,7 @@
     (:action buy
       :parameters (?p - player ?c - character ?l - location ?pr - pearl ?i - item)
       :precondition (and (at ?p ?l) (at ?c ?l) (not (dead ?c)) (has ?c ?i) (has ?p ?pr))
-      :effect (and (has ?p ?i) (not (has ?c ?i)) (not (has ?p ?pr)) (has ?c ?pr) (increase (total-cost) 2)))
+      :effect (and (has ?p ?i) (not (has ?c ?i)) (not (has ?p ?pr)) (has ?c ?pr) (increase (total-cost) 1)))
 
     (:action capture ; capture a living
         :parameters (?p - player ?char - living ?loc - location)
@@ -66,7 +66,7 @@
     (:action giveto
         :parameters (?p - player ?charB - character ?i - item ?loc - location)
         :precondition (and (not (dead ?charB)) (has ?p ?i) (at ?charB ?loc) (at ?p ?loc))
-        :effect (and (has ?charB ?i) (not (has ?p ?i)) (increase (total-cost) 2)))
+        :effect (and (has ?charB ?i) (cooperative ?charB) (not (has ?p ?i)) (increase (total-cost) 2)))
 
     (:action move
         :parameters (?p - player ?to ?from - location)
@@ -76,7 +76,7 @@
     (:action kill
         :parameters (?p - player ?charA - living ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?p ?w))
-        :effect (and (dead ?charA) (increase (total-cost) 3)))
+        :effect (and (dead ?charA) (increase (total-cost) 4)))
 
     (:action killforitem
         :parameters (?p - player ?charA - monster ?i - item ?loc - location ?w - weapon)
@@ -118,7 +118,7 @@
     (:action stealth
         :parameters (?p - player)
         :precondition (not (sneaky ?p))
-        :effect (and (sneaky ?p) (increase (total-cost) 1)))
+        :effect (and (sneaky ?p) (increase (total-cost) 2)))
 
 
     (:action take
@@ -129,6 +129,6 @@
     (:action use
         :parameters (?p - player ?i - item)
         :precondition (has ?p ?i)
-        :effect (and (used ?i) (increase (total-cost) 0)))
+        :effect (and (used ?i) (increase (total-cost) -1)))
 
 )

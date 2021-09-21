@@ -76,17 +76,17 @@
     (:action kill
         :parameters (?p - player ?charA - living ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?p ?w))
-        :effect (and (dead ?charA) (increase (total-cost) 3)))
+        :effect (and (dead ?charA) (increase (total-cost) 2)))
 
     (:action killforitem
         :parameters (?p - player ?charA - monster ?i - item ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?charA ?i) (has ?p ?w))
-        :effect (and (has ?loc ?i) (dead ?charA) (increase (total-cost) 3)))
+        :effect (and (has ?loc ?i) (dead ?charA) (increase (total-cost) 2)))
 
     (:action killforinfo
         :parameters (?p - player ?charA - monster ?info - information ?loc - location ?w - weapon)
         :precondition (and (not (dead ?charA)) (not (damaged ?w)) (at ?charA ?loc) (at ?p ?loc) (has ?charA ?info) (has ?p ?w))
-        :effect (and (has ?p ?info) (dead ?charA) (increase (total-cost) 3)))
+        :effect (and (has ?p ?info) (dead ?charA) (increase (total-cost) 2)))
 
     (:action listen
         :parameters (?p - player ?char - character ?loc - location ?info - information)

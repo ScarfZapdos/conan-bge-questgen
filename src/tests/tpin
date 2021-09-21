@@ -1,0 +1,83 @@
+kill
+3
+killforitem
+3
+killforinfo
+3
+escort
+5
+capture
+1
+spy
+1
+generalkehck
+(and (defended squarekey) (has generalkehck conspiracy))
+Wait
+['Cluster']
+1000
+generalkehck
+(and (defended peyj) (cooperative secundo))
+Wait
+[['(defend you peyj lighthouse)', '(giveto you secundo daijo2 lighthouse)']]
+2.0
+generalkehck
+ (explored mingtzushop)
+Wait
+[['(explore you lighthouse lagoon)', '(explore you lagoon city)', '(explore you city pedestrian)', '(explore you pedestrian mingtzushop)']]
+2.0
+generalkehck
+(and (explored akuda) (at hahn factory) (has you treasureloc))
+Wait
+['Cluster']
+1000
+generalkehck
+(and (cooperative doubleh) (has you conspiracy) (cooperative mingtzu))
+Wait
+[['(explore you lighthouse lagoon)', '(explore you lagoon city)', '(stealth you)', '(explore you city lagoon2)', '(explore you lagoon2 factory)', '(spy you doubleh factory conspiracy)', '(giveto you doubleh daijo2 factory)', '(take you doubleh circlekey factory)', '(move you lagoon2 factory)', '(move you city lagoon2)', '(explore you city pedestrian)', '(explore you pedestrian mingtzushop)', '(giveto you mingtzu circlekey mingtzushop)']]
+1.6923076923076923
+generalkehck
+ (has secundo treasureloc)
+Wait
+[['(giveto you secundo daijo2 lighthouse)', '(take you secundo daijo2 lighthouse)', '(escort you secundo lighthouse lagoon)', '(escort you secundo lagoon city)', '(escort you secundo city lagoon2)', '(escort you secundo lagoon2 slaughterhouse)', '(killforinfo you spiriteater treasureloc slaughterhouse daijo2)', '(report you secundo treasureloc slaughterhouse)']]
+3.625
+generalkehck
+ (has doubleh treasureloc)
+Wait
+[['(explore you lighthouse lagoon)', '(explore you lagoon city)', '(explore you city lagoon2)', '(explore you lagoon2 slaughterhouse)', '(killforinfo you spiriteater treasureloc slaughterhouse daijo2)', '(move you lagoon2 slaughterhouse)', '(explore you lagoon2 factory)', '(report you doubleh treasureloc factory)']]
+2.0
+generalkehck
+(and (dead sarco) (has you conspiracy) (used starkos))
+Wait
+[['(explore you lighthouse lagoon)', '(stealth you)', '(explore you lagoon city)', '(explore you city lagoon2)', '(explore you lagoon2 blackisle)', '(kill you sarco blackisle daijo2)', '(move you lagoon2 blackisle)', '(explore you lagoon2 factory)', '(spy you doubleh factory conspiracy)', '(move you lagoon2 factory)', '(move you city lagoon2)', '(explore you city pedestrian)', '(explore you pedestrian mingtzushop)', '(giveto you mingtzu daijo2 mingtzushop)', '(take you mingtzu starkos mingtzushop)', '(use you starkos)']]
+1.625
+generalkehck
+(and (dead imperator) (used pearl2) (defended squarekey))
+Wait
+['Cluster']
+1000
+generalkehck
+ (has you conspiracy)
+Wait
+[['(explore you lighthouse lagoon)', '(explore you lagoon city)', '(explore you city lagoon2)', '(explore you lagoon2 factory)', '(listen you doubleh factory conspiracy)']]
+2.0
+generalkehck
+(and (explored lighthouse) (defended peyj))
+Wait
+['Cluster']
+1000
+generalkehck
+(and (cooperative secundo) (captive you hahn))
+Wait
+[['(giveto you secundo daijo2 lighthouse)', '(explore you lighthouse lagoon)', '(explore you lagoon city)', '(explore you city pedestrian)', '(explore you pedestrian akuda)', '(capture you hahn akuda)']]
+1.8333333333333333
+(and (dead sarco) (has you conspiracy) (used starkos)) 1.625
+Should be empty now:
+[' (captive you secundo)', '(and (has peyj circlekey) (defended pearl3) (has you treasureloc))', '(and (has peyj pearl3) (used circlekey))', ' (cooperative doubleh)', ' (has governor treasureloc)', ' (explored akuda)', '(and (defended starkos) (at highpriest mingtzushop) (has generalkehck peyjmdisk))', '(and (used circlekey) (explored slaughterhouse))', '(and (used circlekey) (has you conspiracy) (used pearl3))', '(and (defended starkos) (defended kbups))', '(and (has highpriest circlekey) (used squarekey))', '(and (defended peyj) (at hahn selene))', '(and (used circlekey) (has hahn pod))', '(and (defended generalkehck) (defended hahn))', '(and (at issam blackisle) (defended pearl4))', ' (explored city)', '(and (captive you hahn) (has you treasureloc))', '(and (explored pedestrian) (explored pedestrian))', '(and (explored lighthouse) (at secundo pedestrian) (dead reaper))', '(and (has issam treasureloc) (captive you hahn) (dead pterolimax))', '(and (defended circlekey) (has mingtzu pod))', '(and (captive you generalkehck) (explored selene) (used pearl3))', '(and (has jade conspiracy) (cooperative jade))', '(and (defended squarekey) (defended peyjmdisk))', '(and (defended governor) (explored blackisle) (has mingtzu pearl5))', '(and (captive you doubleh) (used pearl5))', '(and (has mingtzu treasureloc) (at secundo akuda) (used squarekey))', '(and (defended pearl3) (dead sarco) (at mingtzu slaughterhouse))', '(and (has mingtzu pearl1) (cooperative secundo) (explored akuda))', '(and (dead sarco) (defended circlekey))', ' (has you treasureloc)', '(and (defended issam) (dead spiriteater) (has generalkehck treasureloc))', ' (defended peyj)', '(and (has mingtzu pearl1) (has you treasureloc) (dead reaper))', ' (captive you peyj)', '(and (has hahn pearl1) (defended issam))', '(and (cooperative doubleh) (captive you jade))', '(and (at highpriest lighthouse) (defended generalkehck))', ' (defended hahn)', '(and (dead sarco) (dead sarco))', '(and (has you treasureloc) (explored factory) (at issam mingtzushop))', '(and (explored selene) (defended mingtzu))', '(and (has doubleh treasureloc) (defended peyjmdisk) (defended mingtzu))', ' (cooperative peyj)', '(and (has you treasureloc) (cooperative issam))', '(and (has generalkehck conspiracy) (cooperative governor) (has you treasureloc))', '(and (captive you issam) (captive you highpriest))', '(and (used peyjmdisk) (cooperative secundo))', '(and (has you conspiracy) (has you treasureloc))', '(and (cooperative mingtzu) (defended pod))', '(and (at highpriest pedestrian) (explored lighthouse))', '(and (used kbups) (has you treasureloc) (used pearl2))', ' (has mingtzu circlekey)', '(and (dead imperator) (captive you hahn) (has secundo pearl1))', '(and (defended pearl1) (has secundo treasureloc))', ' (captive you issam)', '(and (has you conspiracy) (has generalkehck pearl1))', '(and (has you conspiracy) (used peyjmdisk) (used pearl5))', '(and (used peyjmdisk) (used peyjmdisk) (cooperative doubleh))', ' (used peyjmdisk)', ' (captive you jade)', ' (cooperative doubleh)', ' (at generalkehck pedestrian)', '(and (defended governor) (captive you generalkehck) (has you conspiracy))', '(and (captive you hahn) (has jade treasureloc) (defended starkos))', ' (has jade treasureloc)', '(and (captive you issam) (dead spiriteater))', '(and (has you treasureloc) (defended pearl4) (has governor conspiracy))', ' (has secundo pod)', '(and (has doubleh pearl1) (defended jade))', '(and (has issam conspiracy) (cooperative secundo))', '(and (defended pearl1) (explored factory) (dead pterolimax))', ' (cooperative generalkehck)', ' (captive you jade)', '(and (has you conspiracy) (used squarekey) (explored mingtzushop))', ' (cooperative highpriest)', '(and (captive you secundo) (defended hahn) (dead sarco))', '(and (has doubleh treasureloc) (used kbups) (cooperative highpriest))', '(and (has you conspiracy) (cooperative hahn))', '(and (has you conspiracy) (has hahn conspiracy) (defended hahn))', '(and (has generalkehck conspiracy) (has mingtzu conspiracy))', '(and (has you conspiracy) (has issam treasureloc) (dead reaper))', '(and (used pearl4) (cooperative doubleh))', '(and (explored city) (defended mingtzu))', '(and (has issam conspiracy) (has you treasureloc))', '(and (at generalkehck lagoon2) (dead sarco))', ' (captive you jade)', '(and (has mingtzu peyjmdisk) (dead reaper) (used pearl3))', '(and (used pearl3) (defended circlekey) (defended hahn))', '(and (has highpriest squarekey) (explored slaughterhouse))', '(and (has you treasureloc) (captive you doubleh))', '(and (has governor pearl3) (used pearl2) (has jade pearl3))', ' (explored slaughterhouse)', '(and (at secundo selene) (captive you governor) (at peyj lagoon))', '(and (at generalkehck city) (explored blackisle))', '(and (used circlekey) (has highpriest circlekey) (captive you generalkehck))', ' (cooperative governor)', '(and (dead pterolimax) (defended squarekey))', ' (has you treasureloc)']
+[' (captive you secundo)', '(and (has peyj circlekey) (defended pearl3) (has you treasureloc))', '(and (has peyj pearl3) (used circlekey))', ' (cooperative doubleh)', ' (has governor treasureloc)', ' (explored akuda)', '(and (defended starkos) (at highpriest mingtzushop) (has generalkehck peyjmdisk))', '(and (used circlekey) (explored slaughterhouse))', '(and (used circlekey) (has you conspiracy) (used pearl3))', '(and (defended starkos) (defended kbups))', '(and (has highpriest circlekey) (used squarekey))', '(and (defended peyj) (at hahn selene))', '(and (used circlekey) (has hahn pod))', '(and (defended generalkehck) (defended hahn))', '(and (at issam blackisle) (defended pearl4))', ' (explored city)', '(and (captive you hahn) (has you treasureloc))', '(and (explored pedestrian) (explored pedestrian))', '(and (explored lighthouse) (at secundo pedestrian) (dead reaper))', '(and (has issam treasureloc) (captive you hahn) (dead pterolimax))', '(and (defended circlekey) (has mingtzu pod))', '(and (captive you generalkehck) (explored selene) (used pearl3))', '(and (has jade conspiracy) (cooperative jade))', '(and (defended squarekey) (defended peyjmdisk))', '(and (defended governor) (explored blackisle) (has mingtzu pearl5))', '(and (captive you doubleh) (used pearl5))', '(and (has mingtzu treasureloc) (at secundo akuda) (used squarekey))', '(and (defended pearl3) (dead sarco) (at mingtzu slaughterhouse))', '(and (has mingtzu pearl1) (cooperative secundo) (explored akuda))', '(and (dead sarco) (defended circlekey))', ' (has you treasureloc)', '(and (defended issam) (dead spiriteater) (has generalkehck treasureloc))', ' (defended peyj)', '(and (has mingtzu pearl1) (has you treasureloc) (dead reaper))', ' (captive you peyj)', '(and (has hahn pearl1) (defended issam))', '(and (cooperative doubleh) (captive you jade))', '(and (at highpriest lighthouse) (defended generalkehck))', ' (defended hahn)', '(and (dead sarco) (dead sarco))', '(and (has you treasureloc) (explored factory) (at issam mingtzushop))', '(and (explored selene) (defended mingtzu))', '(and (has doubleh treasureloc) (defended peyjmdisk) (defended mingtzu))', ' (cooperative peyj)', '(and (has you treasureloc) (cooperative issam))', '(and (has generalkehck conspiracy) (cooperative governor) (has you treasureloc))', '(and (captive you issam) (captive you highpriest))', '(and (used peyjmdisk) (cooperative secundo))', '(and (has you conspiracy) (has you treasureloc))', '(and (cooperative mingtzu) (defended pod))', '(and (at highpriest pedestrian) (explored lighthouse))', '(and (used kbups) (has you treasureloc) (used pearl2))', ' (has mingtzu circlekey)', '(and (dead imperator) (captive you hahn) (has secundo pearl1))', '(and (defended pearl1) (has secundo treasureloc))', ' (captive you issam)', '(and (has you conspiracy) (has generalkehck pearl1))', '(and (has you conspiracy) (used peyjmdisk) (used pearl5))', '(and (used peyjmdisk) (used peyjmdisk) (cooperative doubleh))', ' (used peyjmdisk)', ' (captive you jade)', ' (cooperative doubleh)', ' (at generalkehck pedestrian)', '(and (defended governor) (captive you generalkehck) (has you conspiracy))', '(and (captive you hahn) (has jade treasureloc) (defended starkos))', ' (has jade treasureloc)', '(and (captive you issam) (dead spiriteater))', '(and (has you treasureloc) (defended pearl4) (has governor conspiracy))', ' (has secundo pod)', '(and (has doubleh pearl1) (defended jade))', '(and (has issam conspiracy) (cooperative secundo))', '(and (defended pearl1) (explored factory) (dead pterolimax))', ' (cooperative generalkehck)', ' (captive you jade)', '(and (has you conspiracy) (used squarekey) (explored mingtzushop))', ' (cooperative highpriest)', '(and (captive you secundo) (defended hahn) (dead sarco))', '(and (has doubleh treasureloc) (used kbups) (cooperative highpriest))', '(and (has you conspiracy) (cooperative hahn))', '(and (has you conspiracy) (has hahn conspiracy) (defended hahn))', '(and (has generalkehck conspiracy) (has mingtzu conspiracy))', '(and (has you conspiracy) (has issam treasureloc) (dead reaper))', '(and (used pearl4) (cooperative doubleh))', '(and (explored city) (defended mingtzu))', '(and (has issam conspiracy) (has you treasureloc))', '(and (at generalkehck lagoon2) (dead sarco))', ' (captive you jade)', '(and (has mingtzu peyjmdisk) (dead reaper) (used pearl3))', '(and (used pearl3) (defended circlekey) (defended hahn))', '(and (has highpriest squarekey) (explored slaughterhouse))', '(and (has you treasureloc) (captive you doubleh))', '(and (has governor pearl3) (used pearl2) (has jade pearl3))', ' (explored slaughterhouse)', '(and (at secundo selene) (captive you governor) (at peyj lagoon))', '(and (at generalkehck city) (explored blackisle))', '(and (used circlekey) (has highpriest circlekey) (captive you generalkehck))', ' (cooperative governor)', '(and (dead pterolimax) (defended squarekey))', ' (has you treasureloc)', '(and (dead sarco) (has you conspiracy) (used starkos))']
+[1.625]
+generalkehck
+ (captive you secundo)
+Thinking
+Done
+[]
+Enter 'exit' to end.

@@ -26,7 +26,7 @@ predicates_as_goals = [
 
 objects = set(["you","jade","doubleh","peyj","secundo","hahn","governor","highpriest","generalkehck","mingtzu","issam","sarco","reaper","imperator","pterolimax","spiriteater","albinorat","aurorawhale","seagull","armadillo","vorax","greenspider","lighthouse","lagoon","lagoon2","city","pedestrian","akuda","mingtzushop","mammago","blackisle","slaughterhouse","factory","selene","daijo","daijo2","gyrodisk","starkos","kbups","pearl1","pearl2","pearl3","pearl4","pearl5","squarekey","circlekey","peyjmdisk","pod","conspiracy","treasureloc"])
 
-writeobjects = "highpriest peyj governor hahn mingtzu issam doubleh jade generalkehck secundo - character\n  you - player\n  spiriteater pterolimax sarco imperator reaper - monster\n  aurorawhale greenspider seagull albinorat armadillo vorax - animal\n  selene lagoon lagoon2 mammago slaughterhouse lighthouse city pedestrian factory akuda mingtzushop blackisle - location\n  peyjmdisk pod pearl1 kbups circlekey starkos pearl2 pearl5 pearl4 pearl3 squarekey - artifact\n  daijo daijo2 gyrodisk - weapon\n  treasureloc conspiracy - information\n  walletplayer walletmingtzu walletissam - wallet"
+writeobjects = "highpriest peyj governor hahn mingtzu issam doubleh jade generalkehck secundo - character\n  you - player\n  spiriteater pterolimax sarco imperator reaper - monster\n  aurorawhale greenspider seagull albinorat armadillo vorax - animal\n  selene lagoon lagoon2 mammago slaughterhouse lighthouse city pedestrian factory akuda mingtzushop blackisle - location\n  peyjmdisk pod kbups circlekey starkos squarekey - artifact\n  pearl2 pearl5 pearl4 pearl3 pearl1 - pearl\n  daijo daijo2 gyrodisk - weapon\n  treasureloc conspiracy - information"
 
 writefacts = set(["(= (total-cost) 0)",
 "(adjacent lighthouse lagoon)",
@@ -80,13 +80,7 @@ writefacts = set(["(= (total-cost) 0)",
 "(has doubleh conspiracy)",
 "(has doubleh circlekey)",
 "(has spiriteater treasureloc)",
-"(captive reaper doubleh)",
-"(has you walletplayer)",
-"(has mingtzu walletmingtzu)",
-"(has issam walletissam)",
-"(= (money walletplayer) 0)",
-"(= (money walletmingtzu) 50)",
-"(= (money walletissam) 50)"
+"(captive reaper doubleh)"
 ])
 
 facts = set([ "(player you)",
@@ -193,12 +187,7 @@ facts = set([ "(player you)",
 "(information treasureloc)",
 "(has spiriteater treasureloc)",
 "(captive reaper doubleh)",
-"(has you walletplayer)",
-"(has mingtzu walletmingtzu)",
-"(has issam walletissam)",
-"(= (money walletplayer) 0)",
-"(= (money walletmingtzu) 50)",
-"(= (money walletissam) 50)"
+"(explored lighthouse)"
 ])
 
 #allgoals = ["(and (dead troll) (dead blacksmith))","(at you forge)"]
@@ -206,9 +195,12 @@ facts = set([ "(player you)",
 goals = []
 
 preferences = dict()
-preferences["peyj"] = ["+kill","-exchange","-use","-escort"]
-preferences["generalkehck"] = ["-kill","+escort","-capture","-spy"]
-preferences["jade"] = ["-stealth","-use","-exchange","-explore","+kill"]
+#preferences["peyj"] = ["+kill","+killforitem","+killforinfo","-buy","-use","-escort"]
+preferences["generalkehck"] = ["-kill","-killforitem","-killforinfo","+escort","-capture","-spy"]
+#preferences["jade"] = ["-stealth","-use","-buy","-explore","+kill","+killforitem","+killforinfo"]
+#preferences["governor"] = ["+stealth","-use","-explore","-capture","-escort","+spy"]
+#preferences["secundo"] = ["-use","-explore","+kill"]
+#preferences["issam"] = ["+stealth","-use","-buy","+kill"]
 
 def finished_thinking(calculating):
     total = len(calculating)
@@ -226,7 +218,7 @@ def rate_plan(plan):
 
     data = "world/bge"
 
-    if plan == 'Cluster' or plan == [] or len(plan[0]) == 0:
+    if plan[0] == 'Cluster' or plan == [] or len(plan[0]) == 0:
         return 1000 # Probably also when the goal is already achieved
     filenames = os.listdir(data)
     solutions = sorted([filename for filename in filenames if filename[-5:] ==".soln"])
@@ -243,7 +235,7 @@ def rate_plan(plan):
     return 2000 # Impossible goal
 
 
-def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verbose = True):
+def choose_goals(data,agents, quests_per_agent = 3, attempts_per_agent = 12, verbose = True):
     """ Chooses goals based on preferences, by creating goals stochastically and
     rating them according to action costs """
 
@@ -274,7 +266,7 @@ def choose_goals(data,agents, quests_per_agent = 1, attempts_per_agent = 4, verb
             #time.sleep(2)
 
             calculating = [questPlanning.plan_quest(agent)]
-            too_long = 30000 # 5 minutes
+            too_long = 180 # 3 minutes
             thinking_time = time.perf_counter()
             thinking_timelast = thinking_time
             while not finished_thinking(calculating):
@@ -390,7 +382,7 @@ def random_goals(agents,subgoals=3):
     #print(goals)
 
 
-def create(data,agents, quest_per_agent = 1, attempts_per_agent = 4, genesis=False, verbose=True):
+def create(data,agents, quest_per_agent = 3, attempts_per_agent = 12, genesis=False, verbose=True):
     """ Creates task files for the planner """
 
     if genesis: # Should run only once. change the attempt per agent.

@@ -1,0 +1,4 @@
+{'stealth': 12, 'capture': 15, 'explore': 235, 'spy': 12, 'move': 44, 'giveto': 29, 'take': 17, 'use': 8, 'escort': 38, 'killforitem': 13, 'getfromlocation': 9, 'killforinfo': 13, 'defend': 13, 'report': 11, 'kill': 9, 'buy': 2, 'listen': 1}
+
+
+{'explore': 212, 'stealth': 8, 'spy': 8, 'move': 57, 'report': 8, 'capture': 20, 'giveto': 22, 'kill': 6, 'killforitem': 18, 'getfromlocation': 14, 'use': 11, 'defend': 10, 'killforinfo': 10, 'take': 9, 'listen': 2, 'escort': 17, 'buy': 3}
