@@ -61,8 +61,8 @@ def main():
 
     domain = "domain.pddl"
 
-    #agents = sorted(["peyj","generalkehck","jade","secundo","governor","issam"])
-    agents = sorted(["generalkehck"])
+    agents = sorted(["peyj","generalkehck","jade","secundo","governor","issam"])
+    #agents = sorted(["generalkehck"])
 
     write_domains(data, domain, agents, worldManagementbge.preferences)
 
@@ -100,7 +100,7 @@ def main():
         for translation,motivation in zip(translations,motivations):
             print(translation,motivation)
 
-        print("Enter 'exit' to end.")
+        print("---------------------------------")
         #action = input()
 
         if True:

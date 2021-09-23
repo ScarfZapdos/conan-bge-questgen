@@ -190,17 +190,15 @@ facts = set([ "(player you)",
 "(explored lighthouse)"
 ])
 
-#allgoals = ["(and (dead troll) (dead blacksmith))","(at you forge)"]
-
 goals = []
 
 preferences = dict()
-#preferences["peyj"] = ["+kill","+killforitem","+killforinfo","-buy","-use","-escort"]
+preferences["peyj"] = ["+kill","+killforitem","+killforinfo","-buy","-use","-escort"]
 preferences["generalkehck"] = ["-kill","-killforitem","-killforinfo","+escort","-capture","-spy"]
-#preferences["jade"] = ["-stealth","-use","-buy","-explore","+kill","+killforitem","+killforinfo"]
-#preferences["governor"] = ["+stealth","-use","-explore","-capture","-escort","+spy"]
-#preferences["secundo"] = ["-use","-explore","+kill"]
-#preferences["issam"] = ["+stealth","-use","-buy","+kill"]
+preferences["jade"] = ["-stealth","-use","-buy","-explore","+kill","+killforitem","+killforinfo"]
+preferences["governor"] = ["+stealth","-use","-explore","-capture","-escort","+spy"]
+preferences["secundo"] = ["-use","-explore","+kill"]
+preferences["issam"] = ["+stealth","-use","-buy","+kill"]
 
 def finished_thinking(calculating):
     total = len(calculating)
@@ -300,6 +298,8 @@ def choose_goals(data,agents, quests_per_agent = 3, attempts_per_agent = 12, ver
       print(goals)
     goals.extend(good_goals)
     if verbose:
+      print("---------------------------------")
+      print("Quests chosen by the agents :")
       print(goals)
       print(scores)
 
